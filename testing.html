@@ -1,0 +1,21 @@
+<html>
+
+<head>
+    <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/n5ro/aframe-physics-system@v4.0.1/dist/aframe-physics-system.min.js">
+    </script>
+</head>
+
+<body>
+    <a-scene physics="debug: false">
+        <a-entity gltf-model="#kuppel" static-body scale="1 1 1" position="0 0 0"></a-entity>
+        <a-entity id="rig" movement-controls="fly: false" kinematic-body position="0 1.6 0">
+            <a-camera wasd-controls look-controls touch-controls></a-camera>
+        </a-entity>
+        <a-assets>
+            <a-asset-item id="kuppel" src="models/deutschesmuseum/KlausTest.glb"></a-asset-item>
+        </a-assets>
+    </a-scene>
+</body>
+
+</html>

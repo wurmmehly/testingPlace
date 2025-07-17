@@ -1,0 +1,175 @@
+{
+  "title": "Welcome to Wendelstein",
+  "redirect": "Allow access to camera and location?",
+  "redirectYes": "Yes",
+  "redirectNo": "No",
+  "consent": {
+    "title": "Notice",
+    "text": "The following sites are part of are study conducted by LMU Munich. Please accept the <a href=\"datenschutz.html\" target=\"_blank\">terms</a> to continue. <br> Please also take part in the quiz at the end of your visit to our site.",
+    "checkbox": "I accept the <a href=\"datenschutz.html\" target=\"_blank\">terms</a>",
+    "button": "Continue"
+  },
+  "privacy": {
+    "title": "Informed Consent",
+    "content": "You are invited to participate in the online study Wendelstein Digital - Online Study Master Thesis initiated and conducted by Jennifer Meiler and Clara Sayffaerth. The research is supervised by Clara Sayffaerth at the LMU Munich under Prof. Dr. Albrecht Schmidt. Please note: <ul><li>Your participation is voluntary.</li><li> The online study will last approximately 15 Minutes.</li><li> We will record personal demographics (geolocation, time on site).</li><li>We will record interaction data (e.g., clickes, timings) during the session.</li><li>You will receive no compensation.</li><li>We may publish results from this and other sessions.</li><li> All data you provide in this online study will be published anonymized; thus, they will neither include your name nor cannot be associated with your identity.</li></ul> If you have any questions about the whole informed consent process of this research or your rights as a human research subject, please contact Clara Sayffaerth (E-Mail: clara.sayffaerth@ifi.lmu.de) or Prof. Dr. Albrecht Schmidt. You should carefully read the settings below. You may take as much time as you need to read the consent form. If you do not fully agree with something, or if your questions have not all been answered to your satisfaction, then you should not give your consent. <br><b>1. Purpose and Goal of this Research</b><br>Compare different XR mobile visualization techniques for knowledge transfer Compare different XR mobile visualization techniques for knowledge transfer Your participation will help us achieve this goal. The results of this research may be presented at scientific or professional meetings or published in scientific proceedings and journals.<br><b>2. Participation and Compensation</b><br>Your participation in this online study is voluntary. You will be one of approximately multiple people being surveyed for this research. You will receive no compensation. You may withdraw and discontinue participation at any time. If possible, you may refuse to answer any questions you do not want to answer or withdraw from participation at any time. At any time and without giving any reason, you can notify us that you want to withdraw the consent given (GDPR Art. 21). In case of withdrawal, your data stored based on your consent will be deleted or anonymized where this is legally permissible (GDPR Art. 17). If deletion is impossible or only possible with unreasonable technical effort, your data will be anonymized by deleting the personal identification information. However, anonymization of your data cannot entirely exclude the possibility of subsequent tracing of information to you via other sources. Finally, once the data is anonymized, the deletion of the data is not possible anymore as we will not be able to identify which data is yours. <br><b>3. Procedure</b><br>After giving consent, you will be guided through the following steps: <ul><li>1. Study the Site</li><li>2. Make the Quiz</li></ul> The complete procedure of this online study will last approximately 15 Minutes.<br><b>4. Risks and Benefits</b><br> There are no risks associated with this online study. Discomforts or inconveniences will be minor and are unlikely to happen. If you feel uncomfortable, you may discontinue your participation. (You will not directly benefit through participation in this online study. We hope that the settings obtained from your participation may help to bring forward the research in this field.) With this research, we will advance knowledge in this research field. <b><br>5. Data Protection and Confidentiality</b><br>The General Data Protection Regulation (GDPR) of the European Union (EU) governs that data collection process. The legal basis for processing the personal data is the consent in accordance with GDPR Art. 6 (1). The GDPR guarantees a set of right to the data subjects, including the right to access, rectification, and erasure of personal data. <ul><li>You have the right to access your personal data at any time (GDPR Art. 15).</li><li>You have the right to correct inaccurate personal data at any time (GDPR Art. 16).</li><li>You have the right to have your personal data deleted (GDPR Art. 17).</li><li>You have the right to limit the processing of your personal data (GDPR Art. 18).</li><li>You have the right to have your data transferred to others (GDPR Art. 20).</li><li>You have the right to withdraw the consent given (GDPR Art. 21)</li></ul>If you wish to exercise any of your rights, please contact the researchers.<br>Personal data (geolocation, time on site) will be recorded during participation. The contact details of the study participants can be used to track potential infection chains. Researchers will not identify you by your real name in any reports using settings obtained from this online study, and your confidentiality as a participant in this online study will remain secure. Data collected in this online study will be treated in compliance with the GDPR.<br>We will record demographics, record your interactions, and browser meta data during the online study. All data you provide in this online study will be published anonymized. Subsequent uses of records and data will be subject to standard data use policies that protect the participating individuals' anonymity. We will remove or code any personal information that could identify you before publishing the data to ensure that no one can identify you from the information we share. We will use current scientific standards and known methods for anonymization. When your data are anonymized, they are altered in a manner that they can no longer be traced back to your person or only with disproportionate technical effort. Despite these measures, we cannot guarantee the anonymity of your personal data. This site uses cookies and other tracking technologies to conduct the research, to improve the user experience, the ability to interact with the system and to provide additional content from third parties. Despite careful control of content, the researchers assume no liability for damages, which directly or indirectly result from the use of this online application.<br>Your non-anonymized data will be stored for 10 years from the time your consent is given, unless you withdraw your consent before this period has elapsed. Your non-anonymized data will be stored in a secure location and will be accessible only to the researchers involved in this work. Anonymized data collected can be shared publicly. Data collected that have not been made public will be deleted after the end of the research. As with any publication or online-related activity, the risk of a breach of confidentiality is always possible. According to the GDPR, the researchers will inform the participant if a breach of confidential data is detected.<b><br>6. Identification of Investigators</b><br>If you have any questions or concerns about the research, please feel free to contact: <ul><li>Jennifer Meiler (jennifer.meiler@campus.lmu.de)</li><li>Clara Sayffaerth (clara.sayffaerth@ifi.lmu.de)</li></ul>"
+  },
+  "description": "Here you have the opportunity to explore various parts of the observatory with the help of your smartphone. On the following map you can see points where you can take a look at the observatory's 2m telescope using augmented reality (AR). In addition, there are further sections that can be viewed in more detail from any location on your smartphone.",
+  "artutorial": "No experience with AR? Then use our tutorial!",
+  "hotspots": {
+    "hotspot1": "Text for Hotspot 1",
+    "hotspot2": "Text for Hotspot 2",
+    "hotspot3": "Text for Hotspot 3",
+    "hotspot4": "Text for Hotspot 4"
+  },
+  "close": "Close",
+  "quizBanner": {
+    "text": "This page is part of a study. Join the <a href='quiz.html'>quiz</a>!"
+  },
+  "quiz": {
+    "result": "You got {{score}} out of {{total}} correct!",
+    "questions": [
+      {
+        "text": "What is astronomy?",
+        "answers": [
+          "Science of Stars",
+          "Interpretation of astrological events",
+          "Course to learn drawing stars",
+          "Science of climate"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "Which building can be seen on the Wendelstein?",
+        "answers": [
+          "Weather station",
+          "Observatory",
+          "Mountain Rescue Station",
+          "Hotel"
+        ],
+        "correct": 1
+      },
+      {
+        "text": "What is the main purpose of the facility?",
+        "answers": [
+          "Research",
+          "Entertainment",
+          "Public relations",
+          "Photography"
+        ],
+        "correct": 0
+      },
+      {
+        "text": "What is an important part of the 2m telescope?",
+        "answers": ["Objective", "Tripod", "Viewfinder", "Cooling"],
+        "correct": 3
+      },
+      {
+        "text": "How many mirrors does the 2m telescope have?",
+        "answers": ["1", "2", "3", "4"],
+        "correct": 2
+      },
+      {
+        "text": "What is the difference between stars and planets?",
+        "answers": [
+          "Stars shine by themselves, planets reflect light",
+          "Stars reflect light, planets shine by themselves",
+          "Stars reflect the light of planets",
+          "Stars and planets both shine by themselves"
+        ],
+        "correct": 0
+      },
+      {
+        "text": "What color light do young stars have?",
+        "answers": ["Green", "Red", "Yellow", "Blue"],
+        "correct": 0
+      },
+      {
+        "text": "What is the temperature of the Orion Nebula?",
+        "answers": [
+          "about 100 degrees",
+          "about 1000 degrees",
+          "about 10000 degrees",
+          "about 100000 degrees"
+        ],
+        "correct": 0
+      },
+      {
+        "text": "What does the color yellow mean in relation to the age of the stars?",
+        "answers": [
+          "As old as the sun",
+          "Realtively young",
+          "As old as the earth",
+          "Older than the sun"
+        ],
+        "correct": 0
+      },
+      {
+        "text": "What does the movement in Messier 51 lead to?",
+        "answers": [
+          "Black hole",
+          "Solar storms",
+          "Merging of galaxies",
+          "Gravity"
+        ],
+        "correct": 0
+      }
+    ]
+  },
+  "panorama": {
+    "text": "Start",
+    "class": "panorama-btn"
+  },
+  "menu": {
+    "tour": "360°-Tour",
+    "location": "AR Model",
+    "model": "Telescope Model",
+    "sky": "Sky Images"
+  },
+  "map": {
+    "text": "Start map",
+    "class": "map-btn"
+  },
+  "marker": {
+    "text": "Start",
+    "class": "marker-btn"
+  },
+  "tutorial": {
+    "text": "View tutorial",
+    "class": "tutorial-btn"
+  },
+  "artitle": "AR Tutorial",
+  "ardescription": "Go to the relevant location and select the appropriate marker after pressing ‘Start’. Then point your camera in the direction of the large dome.",
+  "readmore": "Read more",
+  "objectinfoalt": "A picture of ",
+
+  "skyObjects": {
+    "m33": {
+      "name": "Triangulum Galaxy (Messier 33)",
+      "desc": "The Triangulum Galaxy (M33) is the third-largest galaxy in the local galactic group, after the Andromeda Galaxy and our own Milky Way. At 2.4 million light years away, uncountably many new stars are being birthed in its spiral arms. These young, massive stars shine blue, and they excite the molecules in interstellar gas to shine a red-violet. In the yellow-white background lie billions of Sun-like stars -- the darker areas arise from dust clouds blocking these stars' light. This photograph was taken by the widefield camera of the Wendelstein Observatory's 2m Fraunhofer Telescope, and has an angular diameter close to that of the Moon."
+    },
+    "m42": {
+      "name": "Orion Nebula (Messier 42)",
+      "desc": "The Orion Nebula is one of the most famous star forming regions in the Milky Way Galaxy, sitting at about 1,340 light years from Earth. The nebula's distinctive shape is made up of reddish gas and brown dust. Young, hot stars from the center heat the surrounding gas to about 10,000 degrees Celsius, causing it to produce its own light. The red color seen in the Nebula comes from the H-alpha emission line of hydrogen atoms in the Nebula's water molecules, making up over 70% of the nebula by mass. This image is about as wide in the sky as the Moon, and, at the distance the Orion Nebula sits, crosses about 12 light years. This photograph was taken with the widefield camera of the Wendelstein Observatory's 2m Fraunhofer Telescope"
+    },
+    "m51": {
+      "name": "The Whirlpool Galaxy (Messier 51)",
+      "desc": "The Whirlpool Galaxy consists of two: the spiral galaxy NGC 5194 (below, with similar structure and size to our Milky Way) and its clearly smaller companion, NGC 5195 (above). NGC 5195 is in an elliptical, inward-spiraling orbit around NGC 5194, which, in about 100 million years, will lead to a collision between the two galaxies. Already the strong tidal forces between the two galaxies have flung millions of stars into intergalactic space, forming diffuse filaments and asymmetric structure, especially around NGC5195. Messier 51 is about 26 million light years from Earth, meaning the actual gap between the galaxies is about 35,000 light years. The Wendelstein Observatory's 2m Fraunhofer Telescope took the photograph in three different colors -- blue, red, and infrared -- which were later superimposed to produce the above image."
+    },
+    "m65m66": {
+      "name": "The Spiral Galaxies Messier 65 and Messier 66",
+      "desc": "Messier 65 (bottom right) and Messier 66 (top left) are part of the Leo Triplet, a galaxy group 32 million light years from Earth in the Leo constellation. M65 resembles our Milky Way galaxy, and both galaxies contain about 100 billion stars each. Both galaxies have diameters of about 100,000 light years. The blue light seen in both galaxies comes from young, massive stars, up to a hundred times the mass of our Sun, while the yellow light comes from stars much like the Sun. The dark filaments, however, are from interstellar dust. The many pointlike objects in the foreground are from stars within the Milky Way galaxy, while the dim, wider objects in the background are entire galaxies, much further away. The intergalactic space between M65 and M66 is almost devoid of stars. This picture is about as wide in the sky as the Moon, a superposition of three images taken in ultraviolet, green, and red light by the widefield camera of the Wendelstein Observatory's 2m Fraunhofer Telescope."
+    },
+    "abell262": {
+      "name": "Abell 262 Galactic Cluster",
+      "desc": "This photo, a superposition of images taken in ultraviolet, green, and red light, shows the Abell 262 Galactic Cluster and its surroundings, which sits at about 240 million light years away. The center of the cluster (slightly above the center of the image) is dominated by elliptical galaxies, which glow yellow, containung up to a trillion Sun-like stars. Some of these galaxies are actively merging with each other. A spiral galaxy resembling the Milky Way can be seen underneath the center, which has a diameter of about 50,000 light years. The bright, white stars in the foreground belong to the Milky Way, while the dim, reddish objects are mostly galaxies much further away -- some up to ten billion light years away. This picture is about as wide as the Moon, matching the Abell 262 cluster's 2 million light year distance. The photograph was taken by the widefield camera of the Wendelstein Observatory's 2m Fraunhofer Telescope."
+    },
+    "perseusGalaxienCluster": {
+      "name": "Perseus Galactic Cluster",
+      "desc": "This photograph is a superposition of three, each taken in different colors: ultraviolet, green, and red, showing the center of the Perseus Galactic Cluster, which sits at a distance of a bout 230 million light years. Large elliptical galaxies, glowing in white-yellow light and containing up to a trillion Sun-like stars, dominate the Cluster's center. Spiral galaxies like our Milky Way can hardly withstand the strong tidal forces of so many stars. If we put the Milky Way in the Perseus Cluster, it would be about the size of and look similar to the blueish spiral galaxies up and to the left of the middle of the image. The many pointlike objects dotting the entire picture are mostly stars in our Milky Way, but some are galaxies up to 10 billion light years away. This image is about as wide in the sky as the Moon, which, at the distance the Perseus Galactic Cluster sits, crosses about 2 million light years. This photograph was taken with the widefield camera of the Wendelstein Observatory's 2m Fraunhofer Telescope."
+    },
+    "unknown": {
+      "name": "Unknown Object",
+      "desc": "We could not find this object."
+    }
+  }
+}

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Wendelstein Digital - Fenster</title>
+  <script src="https://aframe.io/releases/1.7.0/aframe.min.js"></script>
+  <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
+  <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/gh/lizard-isana/orb.js@v2.4/build/min/orb-core.v2.min.js"></script>
+  <script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script>
+  <script src="js/fraunhofer-sim.js"></script>
+
+  <link href="css/style.css" rel="stylesheet" />
+</head>
+
+<body class="aframe" style="margin: 0; overflow: hidden">
+  <div id="hamburger-menu" class="hamburger-menu">
+    <button id="menu-toggle" aria-label="Menü öffnen">&#9776;</button>
+    <nav id="menu-nav" class="menu-nav hidden"></nav>
+  </div>
+  <a-scene vr-mode-ui="enabled: false" embedded arjs="sourceType: webcam; debugUIEnabled: false"
+    renderer="antialias: false; logarithmicDepthBuffer:true" handle-gps>
+    <a-assets>
+      <!-- Der Himmel, in verschiedenen Lichtfarben -->
+      <!-- WICHTIG: die Mitte der Milchstraße soll bei der Mitte des Bilds sein und das Bild muss im Plattkarte-Form sein -->
+      <img id="opticalSky" src="images/sky/optical.jpg" />
+
+      <a-mixin id="waypointFrame" geometry="primitive: circle; radius: 20" material="color: white; shader: flat"
+        look-at="#camera"></a-mixin>
+      <a-mixin id="waypointImage" geometry="primitive: circle; radius: 19.5" material="color: white; shader: flat"
+        material="shader: flat" position="0 0 0.005"></a-mixin>
+      <a-mixin id="waypointRaycastable" geometry="primitive: circle; radius: 20" visible="false"
+        look-at="#fraunhoferPedestal"></a-mixin>
+
+      <a-mixin id="hologramPanel" geometry="primitive: plane; width: 100; height: 50"
+        material="color: #999999; opacity: .5; transparent: false" position="0 -28 0" visible="false">
+      </a-mixin>
+      <a-mixin id="hologramTitle" position="0 -7 0" text="
+            shader: msdf;
+            baseline: top;
+            align: center;
+            width: 90;
+            wrapCount: 21.9s;
+            font: https://cdn.aframe.io/examples/ui/Viga-Regular.json;
+            color: white;
+            transparent: false"></a-mixin>
+
+      <a-mixin id="mirrorRay" line="color: #f0ff72; opacity: .5"></a-mixin>
+    </a-assets>
+
+    <!-- Kamera nutzt echte GPS-Position des Geräts -->
+    <!-- Dieses Cursor kann beim Klick das Info-Panel schließen -->
+    <a-camera id="camera" look-controls="pointerLockEnabled: true" cursor="rayOrigin: mouse" raycaster="objects: none"
+      telescope-control>
+      <a-plane id="fader" color="#333333" opacity=".5" visible="false" position="0 0 -1e-3"></a-plane>
+    </a-camera>
+
+    <!-- Modell an GPS-Koordinaten -->
+    <a-entity id="fraunhoferRig" scale=".1 .1 .1" position="0 0 -10">
+      <a-entity id="fraunhoferPedestal" gltf-model="models/fraunhofer/pedestal.glb">
+        <a-entity id="fraunhoferTopPart" gltf-model="models/fraunhofer/topPart.glb" rotation="0 0 0">
+          <!-- "Rig" benötigt, um das Teleskop richtig zu drehen (um die richtige Achse) -->
+          <a-entity id="fraunhoferTelescopeRig" position="0 32.09 0" rotation="90 0 0">
+            <a-entity id="fraunhoferTelescope" gltf-model="models/fraunhofer/telescope.glb" position="0 -32.09 0">
+            </a-entity>
+
+            <a-cursor id="fraunhoferRaycaster" raycaster="objects: .raycastable; far: 1e5" fuse="true"></a-cursor>
+
+            <a-entity id="fraunhoferBeam" rotation="-90 0 0">
+              <a-entity id="primaryMirror" mirror-rays="start: 0 4000 10.2; length: 4005.4; tilt: 180"></a-entity>
+              <a-entity id="secondaryMirror" mirror-rays="start: 0 -5.4 10.2; length: 28.5; tilt: -13.725"></a-entity>
+              <a-entity id="tertiaryMirror" mirror-rays="start: 0 22.2 3.5; length: 24; tilt: 184"></a-entity>
+            </a-entity>
+          </a-entity>
+        </a-entity>
+      </a-entity>
+    </a-entity>
+
+    <a-entity load-sky id="celestialSphere" position="0 3.209 -10">
+      <a-entity id="skyBackground" sky-background rotation="0 -90 0"> <!-- Diese Rotation setzt die Mitte der Galaxie bei den Koordinaten Az=0, Alt=0 -->
+        <!-- Diese "Rotators" drehen den Himmel zu die richtige Position -->
+        <a-entity id="skyRotator">
+            <a-entity id="galaxyRoller">
+              <a-sky src="#opticalSky" visible="false"></a-sky>
+            </a-entity>
+          </a-entity>
+        </a-entity>
+      </a-entity>
+    </a-entity>
+  </a-scene>
+
+  <!-- Dies soll am Ende sein; andersweise lädt die <a-scene> über dem overlay -->
+  <div id="overlay" class="overlay">
+    <div id="readMoreContainer" class="container"></div>
+    <div id="infoPanelContainer" class="container"></div>
+  </div>
+</body>
+
+</html>

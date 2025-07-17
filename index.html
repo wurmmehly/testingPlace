@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Wendelstein Digital</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/style.css" rel="stylesheet">
+    <script src="js/script.js" type="text/javascript"></script>
+</head>
+
+<body>
+    <!-- Sprachauswahl-Modal -->
+    <div id="language-modal" class="modal">
+        <div class="modal-content">
+            <h2>Sprache wählen / Choose language</h2>
+            <button class="btn lang-btn" onclick="setLanguage('de')">🇩🇪 Deutsch</button>
+            <button class="btn lang-btn" onclick="setLanguage('en')">🇬🇧 English</button>
+        </div>
+    </div>
+
+    <!-- Datenschutz-Modal -->
+    <div id="consent-modal" class="modal hidden">
+        <div class="modal-content">
+            <h2 id="consent-title"></h2>
+            <p id="consent-text"></p>
+            <label>
+                <input type="checkbox" id="consent-checkbox">
+                <span id="consent-checkbox-label"></span>
+            </label>
+            <br>
+            <button id="consent-btn" class="btn" disabled></button>
+        </div>
+        <div id="quiz-banner" class="quiz-banner hidden">
+            <span id="quiz-banner-text">
+            </span>
+        </div>
+    </div>
+
+
+    <!-- Weiterleitungs-Modal -->
+    <div id="redirect-modal" class="modal hidden">
+        <div class="modal-content">
+            <h2 id="redirect"></h2>
+            <button id="redirectYesBtn" class="btn redirect-btn-yes" onclick="redirectToIndex()"></button>
+            <button id="redirectNoBtn" class="btn redirect-btn-no" onclick="redirectToOtherPage()"></button>
+        </div>
+    </div>
+
+
+    <!-- Sprachwechsel-Button 
+    <div class="lang-switch">
+        <button class="btn lang-btn" onclick="showLanguageModal()">🇩🇪/🇬🇧</button>
+    </div>-->
+
+    <!-- Seiteninhalt -->
+    <h1 id="title"></h1>
+    <p id="description"></p>
+    <p id="artutorial"></p>
+    <div class="button-row">
+        <button id="map" onclick="window.location.href='map.html'">Map</button>
+        <button id="marker" onclick="window.location.href='location.html'">Marker</button>
+    </div>
+</body>
+
+</html>

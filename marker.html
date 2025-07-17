@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Wendelstein Digital - Plattform</title>
+    <script src="https://aframe.io/releases/1.7.0/aframe.min.js"></script>
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+</head>
+
+<body style="margin: 0; overflow: hidden;">
+    <a-scene embedded arjs="sourceType: webcam;">
+        <a-camera></a-camera>
+
+        <!-- Marker ohne direkte Modelle -->
+        <a-marker id="marker1" type="pattern" url="resources/pattern-marker.patt"></a-marker>
+        <a-marker id="marker2" type="pattern" url="resources/pattern-hiro.patt"></a-marker>
+
+        <!-- Unabhängige Modelle -->
+        <a-entity id="model1" gltf-model="models/fraunhofer/fraunhofer.glb" position="0 0 -2" rotation="0 90 0"
+            scale="0.1 0.1 0.1" visible="false">
+        </a-entity>
+
+        <a-entity id="model2" gltf-model="models/fraunhofer/pedestal.glb" position="0 0 -2" rotation="0 90 0"
+            scale="0.1 0.1 0.1" visible="false">
+        </a-entity>
+    </a-scene>
+
+    <script>
+        document.querySelector('a-scene').addEventListener('loaded', () => {
+            const marker1 = document.getElementById('marker1');
+            const marker2 = document.getElementById('marker2');
+            const model1 = document.getElementById('model1');
+            const model2 = document.getElementById('model2');
+
+            // Zustandsvariablen
+            let activeModel = null;
+            let lastPosition = new THREE.Vector3();
+            let lastRotation = new THREE.Euler();
+
+            // Marker-Events für marker1
+            marker1.addEventListener('markerFound', () => {
+                model1.setAttribute('visible', true);
+                model2.setAttribute('visible', false);
+                activeModel = model1;
+            });
+
+            marker1.addEventListener('markerLost', () => {
+                // Speichere letzte Position bei Verlust
+                marker1.object3D.getWorldPosition(lastPosition);
+                marker1.object3D.getWorldRotation(lastRotation);
+            });
+
+            // Marker-Events für marker2
+            marker2.addEventListener('markerFound', () => {
+                model2.setAttribute('visible', true);
+                model1.setAttribute('visible', false);
+                activeModel = model2;
+            });
+
+            marker2.addEventListener('markerLost', () => {
+                marker2.object3D.getWorldPosition(lastPosition);
+                marker2.object3D.getWorldRotation(lastRotation);
+            });
+
+            // Update-Loop
+            function updateScene() {
+                if (activeModel) {
+                    activeModel.setAttribute('position', lastPosition);
+                    activeModel.setAttribute('rotation', {
+                        x: THREE.Math.radToDeg(lastRotation.x),
+                        y: THREE.Math.radToDeg(lastRotation.y),
+                        z: THREE.Math.radToDeg(lastRotation.z)
+                    });
+                }
+                requestAnimationFrame(updateScene);
+            }
+            updateScene();
+        });
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Wendelstein - 360 Tour</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/style.css" rel="stylesheet">
+    <script src="https://aframe.io/releases/1.7.0/aframe.min.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/360-images-tour.js"></script>
+
+</head>
+
+<body>
+    <div id="hamburger-menu" class="hamburger-menu">
+        <button id="menu-toggle" aria-label="Menü öffnen">&#9776;</button>
+        <nav id="menu-nav" class="menu-nav hidden"></nav>
+    </div>
+    <a-scene>
+        <a-assets>
+            <img id="stern" src="resources/star_lmu.svg">
+        </a-assets>
+        <a-sky src="images/test1.jpg"></a-sky>
+        <a-entity camera look-controls>
+            <a-entity cursor="rayOrigin: mouse"></a-entity>
+        </a-entity>
+    </a-scene>
+    <div id="quiz-banner" class="quiz-banner hidden">
+        <span id="quiz-banner-text">
+        </span>
+    </div>
+</body>
+
+</html>

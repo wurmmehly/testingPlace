@@ -1,0 +1,536 @@
+@import url("https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap");
+
+/* Grundlegende Einstellungen für den Body */
+body {
+  padding: 0;
+  position: relative;
+  min-height: 100vh; /* Seite mindestens so hoch wie der Bildschirm */
+  margin: 0;
+  color: #fff;
+  font-family: "Atkinson Hyperlegible", sans-serif;
+  font-size: 1.1em;
+  line-height: 1.5;
+}
+
+/* Hintergrundbild für die gesamte Seite, abgedunkelt und leicht entsättigt */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #333333;
+  background-image: url(../images/background.jpeg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: -1;
+  pointer-events: none;
+  filter: brightness(0.4) grayscale(20%);
+}
+
+/* Overlay für die Sprachwahl (Modal-Dialog) */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #232323;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 1em;
+}
+
+/* Inhalt des Modals (Sprachauswahl) */
+.modal-content {
+  background: #000;
+  color: #fff;
+  padding: 2em 1.5em;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 350px;
+}
+
+/* Versteckt ein Element*/
+.hidden {
+  display: none !important;
+}
+
+/* Allgemeine Einstellungen für Buttons */
+.btn {
+  margin: 10px;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.1em;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.lang-btn {
+  background: #00883a;
+  color: white;
+}
+.redirect-btn-yes {
+  background: #00883a;
+  color: white;
+}
+.redirect-btn-no {
+  background: #f44336;
+  color: white;
+}
+.btn:hover {
+  opacity: 0.9;
+}
+
+/* Sprachwechsel-Button oben rechts fixiert */
+.lang-switch {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  z-index: 1100;
+}
+
+/* Titel und Textbereiche */
+#title,
+#artitle {
+  margin-top: 80px;
+  text-align: center;
+  font-size: 2em;
+  font-weight: bold;
+}
+
+#description,
+#artutorial,
+#ardescription {
+  text-align: center;
+  margin: 1em auto;
+  max-width: 90vw;
+}
+
+/* Container für die beiden Haupt-Buttons: nebeneinander mit Abstand */
+.button-row {
+  display: flex;
+  justify-content: center;
+  gap: 1em;
+  margin: 1em auto;
+  max-width: 350px;
+  width: 90vw;
+}
+
+/* Styling für die beiden Haupt-Buttons */
+.button-row button {
+  flex: 1 1 0;
+  width: auto;
+  max-width: none;
+  margin: 0;
+  display: block;
+  background: #00883a;
+  color: white;
+  padding: 1em 2em;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1.1em;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  transition: background 0.2s;
+}
+
+/* --- Ergänzungen für das scrollbare Bild mit Markern --- */
+#content {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+}
+
+.scroll-container {
+  flex: 1 1 auto;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  overflow: auto;
+  position: relative;
+  background: #222;
+}
+
+#scene-selector {
+  position: fixed;
+  bottom: 20px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  z-index: 10000;
+}
+.scene-button {
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin: 0 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: background 0.3s;
+}
+
+.image-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.main-image {
+  display: block;
+  width: 1854px;
+  height: 911px;
+  max-width: none;
+  max-height: none;
+  user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+}
+
+.marker {
+  position: absolute;
+  width: 36px;
+  height: 36px;
+  background: rgba(255, 0, 0, 0.85);
+  border-radius: 50%;
+  border: 2px solid #fff;
+  cursor: pointer;
+  color: #fff;
+  font-weight: bold;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  transform: translate(-50%, -50%);
+  transition: background 0.2s, box-shadow 0.2s;
+  z-index: 10;
+}
+
+.hamburger-menu {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 1200;
+}
+#menu-toggle {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 2em;
+  cursor: pointer;
+}
+.menu-nav {
+  background: #222;
+  border-radius: 10px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  margin-top: 10px;
+  padding: 1em 1.5em;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+.menu-nav.hidden {
+  display: none;
+}
+.menu-nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.1em;
+  transition: color 0.2s;
+}
+
+.menu-nav .current-page {
+  color: #00883a;
+  font-weight: bold;
+  pointer-events: none;
+  cursor: default;
+  text-decoration: underline;
+}
+
+#hotspot-popup {
+  display: none;
+  position: fixed;
+  left: 50%;
+  top: 20%;
+  transform: translate(-50%, 0);
+  background: white;
+  color: black;
+  border: 2px solid #444;
+  border-radius: 8px;
+  padding: 1em 2em;
+  z-index: 10;
+  font-size: 1.2em;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+#hotspot-popup button {
+  margin-top: 1em;
+}
+
+model-viewer {
+  width: 100vw;
+  height: 100vh;
+  background: transparent;
+}
+
+.quiz-banner {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #00883a;
+  color: #fff;
+  padding: 14px 12px;
+  font-size: 1.1em;
+  z-index: 9999;
+}
+.quiz-banner button {
+  margin-left: 24px;
+  background: #fff;
+  color: #00883a;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 18px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+#quiz-container {
+  max-width: 700px;
+  margin: 5vh auto 0 auto;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 2em;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  text-align: center;
+}
+
+.quiz-question {
+  font-size: 1.4em;
+  margin-bottom: 1.2em;
+  color: #fff;
+}
+
+.quiz-answers {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1em;
+  margin-top: 1em;
+}
+
+.quiz-answer {
+  padding: 0.8em 1.5em;
+  font-size: 1.1em;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  background-color: #00883a;
+  cursor: pointer;
+  transition: background 0.3s;
+  flex: 1 1 40%;
+  min-width: 100px;
+  max-width: 45%;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+}
+
+.quiz-stars {
+  color: #00883a;
+  font-size: 2em;
+}
+
+#quiz-feedback {
+  max-width: 700px;
+  margin: 2em auto;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 2em;
+  border-radius: 10px;
+  font-size: 1.1em;
+  text-align: center;
+}
+
+#privacy-content {
+  padding: 2em;
+  margin: 2em auto;
+  max-width: 800px;
+  font-size: 1.1em;
+  line-height: 1.6;
+  border-radius: 12px;
+  color: white;
+}
+
+#privacy-title {
+  text-align: center;
+  margin-top: 100px;
+  font-size: 2em;
+  font-weight: bold;
+  color: white;
+}
+
+/* Responsive Anpassungen für kleine Bildschirme*/
+@media (max-width: 600px) {
+  body {
+    font-size: 1em;
+  }
+  .modal-content {
+    padding: 1.2em 0.5em;
+    max-width: 95vw;
+  }
+  #title,
+  #artitle {
+    font-size: 1.3em;
+    margin-top: 60px;
+  }
+  .button-row {
+    flex-direction: column;
+    gap: 0.7em;
+    max-width: 95vw;
+    width: 95vw;
+  }
+  .lang-switch {
+    top: 5px;
+    right: 5px;
+  }
+  .button-row button {
+    padding: 1em 0.5em;
+    font-size: 1em;
+  }
+  .quiz-answers {
+    flex-direction: column;
+  }
+
+  .quiz-answer {
+    max-width: 100%;
+  }
+
+  #quiz-container {
+    margin-top: 2em;
+    padding: 1.2em;
+  }
+
+  #quiz-feedback {
+    padding: 1.2em;
+  }
+
+  .quiz-banner {
+    padding: 6px 10px !important;
+    font-size: 1.1em !important;
+    min-height: unset !important;
+    height: auto !important;
+  }
+
+  .quiz-banner span,
+  .quiz-banner a {
+    font-size: 0.9em;
+    line-height: 1.2;
+  }
+}
+
+/* Für fraunhofer-sim */
+body.aframe {
+  position: static !important;
+}
+
+.aframe::before {
+  /* Entfernt das Hintergrundbild nur für A-Frame Seiten */
+  display: none !important;
+}
+
+iframe {
+  border: none;
+}
+
+.overlay {
+  z-index: 999999999;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+}
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: last baseline;
+}
+
+#readMore {
+  margin-bottom: 50px;
+}
+
+button {
+  background-color: #33333388;
+  bottom: 50vh;
+  color: white;
+  padding: 0.35em 0.5em;
+  border-radius: 0.5em;
+  text-align: center;
+  text-decoration: none;
+  font-size: 20px;
+  font-family: "Atkinson Hyperlegible", sans-serif;
+  cursor: pointer;
+  pointer-events: all;
+}
+
+#infoPanelContainer {
+  align-items: center;
+}
+
+#infoPanel {
+  display: block;
+  position: fixed;
+  border-radius: 10px;
+  top: 25px;
+  width: calc(100% - 50px);
+  height: calc(100% - 50px);
+  z-index: 9999;
+  pointer-events: all;
+}
+
+#closeInfoPanel {
+  position: fixed;
+  width: 50px;
+  height: 50px;
+  top: 20px;
+  right: 20px;
+  border-radius: 100%;
+  z-index: 99999;
+}
+
+/* Für Objekt-Info Anzeigen */
+#objectPicture {
+  width: min(500px, 80%);
+  border: 5px solid white;
+  border-radius: 50px;
+}
+
+#objectInfo {
+  text-align: center;
+  margin: 3em 5%;
+}
+
+#objectName {
+  line-height: 1.15;
+  margin-top: 1em;
+  margin-bottom: 0.5em;
+}

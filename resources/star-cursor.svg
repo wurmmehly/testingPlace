@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="134.85365mm"
+   height="131.08174mm"
+   viewBox="0 0 134.85365 131.08174"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4.2 (unknown)"
+   sodipodi:docname="star-cursor.svg"
+   inkscape:export-filename="star-cursor.png"
+   inkscape:export-xdpi="105.61075"
+   inkscape:export-ydpi="105.61075"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#505050"
+     inkscape:document-units="mm"
+     inkscape:zoom="0.89263468"
+     inkscape:cx="253.18308"
+     inkscape:cy="261.58518"
+     inkscape:window-width="1707"
+     inkscape:window-height="985"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Ebene 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-38.032572,-79.081039)">
+    <path
+       d="m 105.4594,100.61217 -14.69402,30.36674 -32.857354,4.86942 23.775877,23.63738 -5.612921,33.3762 29.388418,-15.75812 29.38843,15.75812 -5.61291,-33.3762 23.77586,-23.63738 -32.85734,-4.86942 z"
+       style="fill:none;stroke:#404040;stroke-width:18.7567;stroke-dasharray:none;stroke-opacity:0.5"
+       id="path2" />
+  </g>
+</svg>

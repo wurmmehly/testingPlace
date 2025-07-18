@@ -1,5 +1,5 @@
 const scenes = {
-  "neu/gbunten2.jpg": {
+  "neu/Fenster2.jpg": {
     hotspots: [
       {
         position: "0 0 -5",

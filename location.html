@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html lang="de">
+<html>
 
 <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8">
     <title>Wendelstein Digital - Location</title>
     <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
     <script src="https://raw.githack.com/AR-js-org/AR.js/3.4.5/three.js/build/ar-threex-location-only.js"></script>
     <script src="https://raw.githack.com/AR-js-org/AR.js/3.4.5/aframe/build/aframe-ar.js"></script>
     <script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script>
-
     <script>
+        // Haversine - Entfernung berechnen
         function getDistance(lat1, lon1, lat2, lon2) {
-            const R = 6371000;
+            const R = 6371000; // Erdradius in Metern
             const toRad = x => x * Math.PI / 180;
             const dLat = toRad(lat2 - lat1);
             const dLon = toRad(lon2 - lon1);
@@ -39,8 +39,8 @@
 
             // Real Koords
             const ziel1 = { //Garcher Blick
-                lat: 47.70198300305049,
-                lon: 12.011723151577337
+                lat: 47.70182147525457,
+                lon: 12.012005034384893
             };
             const ziel2 = { //oben
                 lat: 47.703463111562186,
@@ -50,7 +50,7 @@
                 lat: 47.70367430084755,
                 lon: 12.01212145470835
             };
-            const radius = 10;
+            const radius = 10; // Radius in Metern
 
             const model1 = document.querySelector('#modell1');
             const model2 = document.querySelector('#modell2');
@@ -64,7 +64,7 @@
                 const userLat = e.detail.position.latitude;
                 const userLon = e.detail.position.longitude;
 
-                // alle unsichtbar machen
+                // Alle unsichtbar setzen
                 model1.setAttribute('visible', false);
                 model2.setAttribute('visible', false);
                 clickableBox1.setAttribute('visible', false);
@@ -78,7 +78,6 @@
                     model1.setAttribute('visible', true);
                     clickableBox1.setAttribute('visible', true);
                 }
-
                 if (dist2 < radius) {
                     model2.setAttribute('visible', true);
                     clickableBox2.setAttribute('visible', true);
@@ -90,10 +89,10 @@
                 }
             });
 
+
             clickableBox1.addEventListener('click', () => {
                 window.location.href = "360tour.html";
             });
-
             clickableBox2.addEventListener('click', () => {
                 window.location.href = "testing.html";
             });
@@ -102,6 +101,10 @@
 </head>
 
 <body style="margin: 0; overflow: hidden">
+    <div id="hamburger-menu" class="hamburger-menu">
+        <button id="menu-toggle" aria-label="Menü öffnen">&#9776;</button>
+        <nav id="menu-nav" class="menu-nav hidden"></nav>
+    </div>
     <a-scene vr-mode-ui="enabled: false" arjs="sourceType: webcam; videoTexture: true; debugUIEnabled: false"
         renderer="antialias: true; alpha: true" gltf-model="dracoDecoderPath: draco/" loading-screen="enabled: false">
         <a-assets>
@@ -109,25 +112,23 @@
         </a-assets>
 
         <a-entity id="rotationStabilizer" visible="false" position="0 0 1e10"></a-entity>
-
         <a-camera gps-new-camera="gpsMinDistance: 1" look-controls="enabled: false">
-            <!-- Modell bei Ziel 1 -->
+
             <a-entity id="modell1" gltf-model="#fraunhofer" scale="0.02 0.02 0.02" visible="false" position="0 -0.5 -12"
                 look-at="#rotationStabilizer"></a-entity>
 
-            <!-- Modell bei Ziel 2 -->
-            <a-entity id="modell2" gltf-model="#fraunhofer" scale="0.04 0.04 0.04" visible="false" position="0 -0.5 -12"
-                look-at="#rotationStabilizer"></a-entity>
+            <a-box id="modell2" gltf-model="#fraunhofer" scale="0.03 0.03 0.03" visible="false" position="0 -0.5 -10
+                look-at=" #rotationStabilizer"></a-box>
 
-            <!-- Klickbare Box neben Modell 1 -->
+            <!-- Klickbare Box neben Garcher -->
             <a-box id="clickableBox" color="red" depth="0.2" height="0.2" width="0.2" visible="false" position="-1 0 -3"
                 look-at="#rotationStabilizer" class="clickable"></a-box>
 
-            <!-- Klickbare Box neben Modell 2 -->
-            <a-box id="clickableBox2" color="orange" depth="0.3" height="0.3" width="0.3" visible="false"
-                position="1 1 -3" look-at="#rotationStabilizer" class="clickable"></a-box>
+            <!-- Klickbare Box neben Oben -->
+            <a-box id="clickableBox2" color="orange" depth="0.2" height="0.2" width="0.2" visible="false"
+                position="0.8 0 -1.5" look-at="#rotationStabilizer" class="clickable"></a-box>
 
-            <!-- Cursor für Desktop-/Touch-Klicks -->
+            <!-- Cursor für Klick- und Touch-Ereignisse -->
             <a-entity cursor="fuse: false; rayOrigin: mouse" raycaster="objects: .clickable"></a-entity>
         </a-camera>
     </a-scene>

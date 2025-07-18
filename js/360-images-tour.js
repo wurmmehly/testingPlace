@@ -1,5 +1,5 @@
 const scenes = {
-  "neu/gb.jpg": {
+  "neu/oben.jpg": {
     hotspots: [
       {
         position: "0 0 -5",

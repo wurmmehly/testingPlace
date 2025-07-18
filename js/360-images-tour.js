@@ -1,10 +1,11 @@
 const scenes = {
-  "images/test1.jpg": {
+  "neu/gb.jpg": {
     hotspots: [
       {
         position: "0 0 -5",
-        target: "images/test2.jpg",
+        target: "neu/gbunten.jpg",
         type: "image",
+        gbu,
       },
       {
         position: "1 0 -5",
@@ -17,7 +18,7 @@ const scenes = {
     hotspots: [
       {
         position: "2 1 -5",
-        target: "images/test3.jpg",
+        target: "neu/oben.jpg",
         type: "image",
       },
       {

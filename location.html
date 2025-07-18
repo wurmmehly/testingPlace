@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html>
+<html lang="de">
 
 <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
     <title>Wendelstein Digital - Location</title>
     <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
     <script src="https://raw.githack.com/AR-js-org/AR.js/3.4.5/three.js/build/ar-threex-location-only.js"></script>
     <script src="https://raw.githack.com/AR-js-org/AR.js/3.4.5/aframe/build/aframe-ar.js"></script>
     <script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script>
+
     <script>
-        // Haversine - Entfernung berechnen
         function getDistance(lat1, lon1, lat2, lon2) {
-            const R = 6371000; // Erdradius in Metern
+            const R = 6371000;
             const toRad = x => x * Math.PI / 180;
             const dLat = toRad(lat2 - lat1);
             const dLon = toRad(lon2 - lon1);
@@ -23,34 +23,19 @@
         }
 
         window.addEventListener('DOMContentLoaded', () => {
-            /*Testing Koords
             const ziel1 = {
-                lat: 48.75024175713993,
-                lon: 11.430444728664085
-            };
-            const ziel2 = {
-                lat: 48.75015395289849,
-                lon: 11.429551003591685
-            };
-            const ziel3 = {
-                lat: 48.74950343071628,
-                lon: 11.430210056996382
-            };*/
-
-            // Real Koords
-            const ziel1 = { //Garcher Blick
                 lat: 47.702035305131744,
                 lon: 12.011594400652562
             };
-            const ziel2 = { //oben
+            const ziel2 = {
                 lat: 47.703463111562186,
                 lon: 12.012028918500635
             };
-            const ziel3 = { //Fenster
+            const ziel3 = {
                 lat: 47.70375281972895,
                 lon: 12.012299821600854
             };
-            const radius = 10; // Radius in Metern
+            const radius = 10;
 
             const model1 = document.querySelector('#modell1');
             const model2 = document.querySelector('#modell2');
@@ -64,11 +49,11 @@
                 const userLat = e.detail.position.latitude;
                 const userLon = e.detail.position.longitude;
 
-                // Alle unsichtbar setzen
+                // alle unsichtbar machen
                 model1.setAttribute('visible', false);
                 model2.setAttribute('visible', false);
                 clickableBox1.setAttribute('visible', false);
-                clickableBox2.setAttribute('visible', true);
+                clickableBox2.setAttribute('visible', false);
 
                 const dist1 = getDistance(userLat, userLon, ziel1.lat, ziel1.lon);
                 const dist2 = getDistance(userLat, userLon, ziel2.lat, ziel2.lon);
@@ -78,6 +63,7 @@
                     model1.setAttribute('visible', true);
                     clickableBox1.setAttribute('visible', true);
                 }
+
                 if (dist2 < radius) {
                     model2.setAttribute('visible', true);
                     clickableBox2.setAttribute('visible', true);
@@ -89,10 +75,10 @@
                 }
             });
 
-
             clickableBox1.addEventListener('click', () => {
                 window.location.href = "360tour.html";
             });
+
             clickableBox2.addEventListener('click', () => {
                 window.location.href = "testing.html";
             });
@@ -101,10 +87,6 @@
 </head>
 
 <body style="margin: 0; overflow: hidden">
-    <div id="hamburger-menu" class="hamburger-menu">
-        <button id="menu-toggle" aria-label="Menü öffnen">&#9776;</button>
-        <nav id="menu-nav" class="menu-nav hidden"></nav>
-    </div>
     <a-scene vr-mode-ui="enabled: false" arjs="sourceType: webcam; videoTexture: true; debugUIEnabled: false"
         renderer="antialias: true; alpha: true" gltf-model="dracoDecoderPath: draco/" loading-screen="enabled: false">
         <a-assets>
@@ -112,23 +94,25 @@
         </a-assets>
 
         <a-entity id="rotationStabilizer" visible="false" position="0 0 1e10"></a-entity>
-        <a-camera gps-new-camera="gpsMinDistance: 1" look-controls="enabled: false">
 
+        <a-camera gps-new-camera="gpsMinDistance: 1" look-controls="enabled: false">
+            <!-- Modell bei Ziel 1 -->
             <a-entity id="modell1" gltf-model="#fraunhofer" scale="0.02 0.02 0.02" visible="false" position="0 -0.5 -12"
                 look-at="#rotationStabilizer"></a-entity>
 
-            <a-box id="modell2" gltf-model="#fraunhofer" scale="0.04 0.04 0.04" visible="false" position="0 -0.5 -12"
-                look-at="#rotationStabilizer"></a-box>
+            <!-- Modell bei Ziel 2 -->
+            <a-entity id="modell2" gltf-model="#fraunhofer" scale="0.04 0.04 0.04" visible="false" position="0 -0.5 -12"
+                look-at="#rotationStabilizer"></a-entity>
 
-            <!-- Klickbare Box neben Garcher -->
+            <!-- Klickbare Box neben Modell 1 -->
             <a-box id="clickableBox" color="red" depth="0.2" height="0.2" width="0.2" visible="false" position="-1 0 -3"
                 look-at="#rotationStabilizer" class="clickable"></a-box>
 
-            <!-- Klickbare Box neben Oben -->
-            <a-box id="clickableBox2" color="orange" depth="0.2" height="0.2" width="0.2" visible="false"
-                position="0.8 0 -1.5" look-at="#rotationStabilizer" class="clickable"></a-box>
+            <!-- Klickbare Box neben Modell 2 -->
+            <a-box id="clickableBox2" color="orange" depth="0.3" height="0.3" width="0.3" visible="false"
+                position="1 1 -3" look-at="#rotationStabilizer" class="clickable"></a-box>
 
-            <!-- Cursor für Klick- und Touch-Ereignisse -->
+            <!-- Cursor für Desktop-/Touch-Klicks -->
             <a-entity cursor="fuse: false; rayOrigin: mouse" raycaster="objects: .clickable"></a-entity>
         </a-camera>
     </a-scene>

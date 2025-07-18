@@ -14,7 +14,7 @@ const scenes = {
       },
     ],
   },
-  "images/test2.jpg": {
+  "neu/gbunten.jpg": {
     hotspots: [
       {
         position: "2 1 -5",
